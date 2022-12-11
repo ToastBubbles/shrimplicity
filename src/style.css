@@ -102,3 +102,7 @@ li a:hover {
 .game:hover {
   cursor: none;
 }
+
+.flip {
+  transform: rotateY(180deg);
+}
