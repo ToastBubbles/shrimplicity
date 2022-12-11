@@ -98,6 +98,14 @@ li a:hover {
   position: absolute;
   background-image: url(../img/net-rod.png);
 }
+.netting {
+  position: absolute;
+  width: 163px;
+  height: 246px;
+  bottom: 15px;
+  left: -155px;
+  background-image: url(../img/net.png);
+}
 
 .game:hover {
   cursor: none;

@@ -1,5 +1,6 @@
 let gameCanvas = document.getElementById("game"),
   netShaft = document.getElementById("net-shaft"),
+  netting = document.getElementById("netting"),
   mouseX = 0,
   mouseY = 0,
   direction = "",
