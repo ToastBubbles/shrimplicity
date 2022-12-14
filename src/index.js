@@ -3,6 +3,7 @@ let gameCanvas = document.getElementById("game"),
   netting = document.getElementById("netting"),
   debug = document.getElementById("debugger"),
   tracker = document.getElementById("tracker"),
+  shrimpContainer = document.getElementById("shrimp-container"),
   mouseX = 0,
   mouseY = 0,
   direction = "",
@@ -13,15 +14,14 @@ let gameCanvas = document.getElementById("game"),
 let netFlip = 1;
 
 var prevEvent, currentEvent;
+let boundaries = {
+  left: gameCanvas.offsetLeft,
+  right: gameCanvas.offsetLeft + gameCanvas.offsetWidth,
+  top: gameCanvas.offsetTop - this.window.scrollY,
+  bottom: gameCanvas.offsetTop + gameCanvas.offsetHeight - this.window.scrollY,
+};
 
 onmousemove = function (e) {
-  let boundaries = {
-    left: gameCanvas.offsetLeft,
-    right: gameCanvas.offsetLeft + gameCanvas.offsetWidth,
-    top: gameCanvas.offsetTop - this.window.scrollY,
-    bottom:
-      gameCanvas.offsetTop + gameCanvas.offsetHeight - this.window.scrollY,
-  };
   currentEvent = e;
   mouseX = e.clientX;
   mouseY = e.clientY;
@@ -157,17 +157,17 @@ setInterval(function () {
     tracker.style.left = `${tracker.offsetLeft - 1}px`;
   }
   if (tracker.offsetTop < debug.offsetTop) {
-    tracker.style.top = `${tracker.offsetTop + 1}px`;
+    tracker.style.top = `${tracker.offsetTop + 6}px`;
   } else if (tracker.offsetTop > debug.offsetTop) {
-    tracker.style.top = `${tracker.offsetTop - 1}px`;
+    tracker.style.top = `${tracker.offsetTop - 6}px`;
   }
-  console.log(tracker.offsetLeft - debug.offsetLeft);
+  //console.log(tracker.offsetLeft - debug.offsetLeft);
   // tracker.style.left = `${netShaft.offsetLeft + 50 + netXoffset * netFlip}px`;
   // tracker.style.top = `${netShaft.offsetTop + 2500}px`;
   //netting.style.transform = `scale(${lerp}, 1)`;
 
   // console.log(lerp.toFixed(2));
-}, 1);
+}, 10);
 tracker.style.left = debug.style.left;
 tracker.style.top = debug.style.top;
 let netDist = 0;
@@ -175,8 +175,8 @@ let netDistY = 0;
 setInterval(function () {
   netDist = ((debug.offsetLeft - tracker.offsetLeft) * netFlip * -1) / 100;
   netDistY = (debug.offsetTop - tracker.offsetTop) / 100;
-  if (netDist > 1) {
-    netting.style.transform = `scale(${2}, 1)`;
+  if (netDist > 0.5) {
+    netting.style.transform = `scale(${1.5}, 1)`;
   } else if (netDist < -2) {
     netting.style.transform = `scale(${-1}, 1)`;
   } else {
@@ -184,9 +184,41 @@ setInterval(function () {
 
     netting.style.transform = `scale(${netDist + 1}, 1)`;
   }
-  netting.style.transform += `skew(0, ${netDistY}deg)`;
+  if (netDistY > 2) {
+    netting.style.transform += `skew(0, ${2 * 20}deg)`;
+  } else if (netDistY < -2) {
+    netting.style.transform += `skew(0, ${-2 * 20}deg)`;
+  } else {
+    netting.style.transform += `skew(0, ${netDistY * 20}deg)`;
+  }
 
-  //console.log(netDist);
+  //console.log(netDistY);
 }, 10);
+
+function addShrimp() {
+  shrimpContainer.innerHTML += `<div class="shrimp shrimpstand"></div>`;
+
+  shrimpController();
+}
+
+function shrimpController() {
+  let shrimps = document.querySelectorAll(`.shrimp`);
+  shrimps.forEach(function (shrimp) {
+    console.log(shrimp);
+    move(shrimp);
+  });
+}
+let val = 0;
+function move(shrimp) {
+  shrimp.style.left = `${boundaries.left + val}px`;
+  shrimp.style.top = `${gameCanvas.offsetTop - 750}px`;
+  val++;
+  console.log(shrimp.style.top);
+  setTimeout(() => {
+    move(shrimp);
+  }, 10);
+}
+
+addShrimp();
 
 //+ netXoffset * netFlip
