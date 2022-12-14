@@ -209,10 +209,21 @@ function shrimpController() {
   });
 }
 let val = 0;
+let shrimpflip = 1;
 function move(shrimp) {
   shrimp.style.left = `${boundaries.left + val}px`;
   shrimp.style.top = `${gameCanvas.offsetTop - 750}px`;
-  val++;
+  if (shrimp.offsetLeft > boundaries.right - 101 && shrimpflip === 1) {
+    shrimpflip = -1;
+  } else if (shrimp.offsetLeft < boundaries.left && shrimpflip === -1) {
+    shrimpflip = 1;
+  }
+  if (shrimpflip === -1) {
+    val--;
+  } else {
+    val++;
+  }
+  shrimp.style.transform = `scale(${-shrimpflip}, 1)`;
   console.log(shrimp.style.top);
   setTimeout(() => {
     move(shrimp);
