@@ -16,7 +16,7 @@ body::-webkit-scrollbar {
   margin: auto;
   z-index: 30;
   width: 100%;
-  height: 80px;
+  height: 8vh;
   background-color: #555;
 }
 
@@ -89,8 +89,8 @@ li a:hover {
   z-index: 25;
   display: inline-block;
   margin-left: 0;
-  width: 150%;
-  height: 100%;
+  width: 150vw;
+  height: 100vh;
   background-color: rgba(68, 68, 68, 0.7);
   transform-origin: bottom left;
   transform: rotate(-25deg);
@@ -110,8 +110,8 @@ li a:hover {
   display: inline-block;
   /* margin-top: -800px; */
   margin-right: 0vw;
-  width: 150%;
-  height: 100%;
+  width: 150vw;
+  height: 100vh;
   background-color: rgba(51, 51, 51, 0.7);
   transform-origin: bottom right;
   right: 0;
@@ -128,8 +128,8 @@ li a:hover {
   z-index: 19;
   display: inline-block;
   margin-left: 0;
-  width: 150%;
-  height: 100%;
+  width: 150vw;
+  height: 100vh;
   background-color: rgba(51, 51, 51, 0.7);
   transform-origin: top left;
   left: 0;
@@ -242,7 +242,7 @@ li a:hover {
   /* background-color: #1f1d1d; */
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   /* height: 100%; */
   filter: brightness(80%);
 }
@@ -250,12 +250,14 @@ li a:hover {
   display: none;
 }
 #video-container {
-  position: absolute;
+  position: relative;
   /* z-index: 2;
   overflow: auto;
   background-color: #1f1d1d;*/
-  height: 100vh;
-  top: 0;
+  height: 60vw;
+  max-height: 100vh;
+
+  top: -12vh;
   overflow: hidden;
   width: 100vw;
 }
@@ -424,15 +426,16 @@ li a:hover {
 /* ************************  ************************************* */
 
 .transition-shadow {
-  position: absolute;
-  width: 100%;
+  position: relative;
+  top: -12vh;
+  width: 100vw;
   height: 10vh;
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 0) 0%,
     rgba(68, 68, 68, 1) 100%
   );
-  top: 100vh;
+
   /* top: -10px;
   left: -20px; */
 }
