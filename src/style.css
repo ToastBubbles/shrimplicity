@@ -24,13 +24,13 @@ body::-webkit-scrollbar {
   transition: 0.3s;
   backdrop-filter: blur(30px);
   position: absolute;
-  top: 0;
+  bottom: 0;
   /* margin-top: 100px; */
   z-index: 25;
   display: inline-block;
-  margin-left: 0px;
-  width: 2000px;
-  height: 800px;
+  margin-left: 0;
+  width: 150%;
+  height: 100%;
   background-color: rgba(68, 68, 68, 0.7);
   transform-origin: bottom left;
   transform: rotate(-25deg);
@@ -47,13 +47,14 @@ body::-webkit-scrollbar {
   transition: 0.3s;
   backdrop-filter: blur(30px);
   position: absolute;
-  top: -300px;
+  /* top: -300px; */
+  bottom: 45%;
   z-index: 20;
   display: inline-block;
   /* margin-top: -800px; */
-  margin-right: 0px;
-  width: 2000px;
-  height: 800px;
+  margin-right: 0vw;
+  width: 150%;
+  height: 100%;
   background-color: rgba(51, 51, 51, 0.7);
   transform-origin: bottom right;
   /* transform: rotate(25deg); */
@@ -69,13 +70,13 @@ body::-webkit-scrollbar {
 .left-bottom-slide {
   backdrop-filter: blur(30px);
   position: absolute;
-  top: 400px;
+  top: 50%;
   /* margin-top: 100px; */
   z-index: 19;
   display: inline-block;
-  margin-left: 0px;
-  width: 2000px;
-  height: 800px;
+  margin-left: 0;
+  width: 150%;
+  height: 100%;
   background-color: rgba(51, 51, 51, 0.7);
   transform-origin: top left;
   /* transform: rotate(25deg); */
@@ -92,13 +93,13 @@ body::-webkit-scrollbar {
 .right-bottom-slide {
   backdrop-filter: blur(30px);
   position: absolute;
-  top: 0;
+  top: 0%;
 
   z-index: 24;
   display: inline-block;
   margin-right: 0px;
-  width: 2000px;
-  height: 800px;
+  width: 150vw;
+  height: 100vw;
   background-color: rgba(68, 68, 68, 0.7);
   transform-origin: top right;
   transform: rotate(-25deg);
@@ -114,10 +115,11 @@ body::-webkit-scrollbar {
 }
 @keyframes slide {
   from {
-    top: 0px;
+    top: 0%;
   }
   to {
-    top: 400px;
+    top: 50%;
+    /* bottom: calc(40vh - 50vw); */
   }
 }
 @keyframes rotate {
@@ -131,10 +133,11 @@ body::-webkit-scrollbar {
 
 @keyframes slideUp {
   from {
-    top: 0px;
+    bottom: 0;
   }
   to {
-    top: -300px;
+    /* bottom: 100vh; */
+    bottom: 45%;
   }
 }
 @keyframes slideHover {
@@ -158,13 +161,13 @@ ul {
   bottom: 0;
 }
 #left-ul {
-  left: 200px;
+  left: 5vw;
 }
 #left-ul a {
   color: #999;
 }
 #right-ul {
-  right: 200px;
+  right: 5vw;
 }
 #right-ul a {
   color: #999;
@@ -185,7 +188,7 @@ li a {
   overflow: auto;
   background-color: #1f1d1d;*/
   top: 0;
-
+  overflow: hidden;
   width: 100%;
 }
 
@@ -243,7 +246,7 @@ a {
   padding: 8px;
   color: #ddd;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 2em;
+  font-size: 2vw;
   text-decoration: none;
 
   /* background-color: #dddddd; */
