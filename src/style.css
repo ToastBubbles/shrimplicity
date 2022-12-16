@@ -8,16 +8,75 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
+
+/* ************************ Navbar ************************************* */
+.navbar {
+  position: sticky;
+  top: 0;
+  margin: auto;
+  z-index: 30;
+  width: 100%;
+  height: 80px;
+  background-color: #555;
+}
+
+li {
+  /* margin-top: 40px; */
+  /* display: inline-block; */
+  position: relative;
+  display: inline-block;
+  /* float: left; */
+  margin-left: 100;
+}
 .logo {
   height: 60px;
   margin: 10px;
   float: left;
 }
+
+ul {
+  /* display: inline-block; */
+  position: absolute;
+  display: inline-block;
+  list-style-type: none;
+  overflow: hidden;
+
+  margin: 0 0 0 20px;
+  padding: 0;
+  bottom: 0;
+}
+
+li a {
+  text-shadow: 0 2px 0 #1f1d1d;
+}
+a {
+  display: inline-block;
+  /* position: absolute; */
+  /* display: inline-block; */
+  left: 1000px;
+  bottom: 0;
+  margin-left: 100;
+  padding: 8px;
+  color: #ddd;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2vw;
+  text-decoration: none;
+
+  /* background-color: #dddddd; */
+}
+li a:hover {
+  color: rgb(231, 102, 102);
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(107, 107, 107, 1) 100%
+  );
+}
 /* ************************ Slides ************************************* */
 .left-slide:hover {
   transform: rotate(-24deg);
 }
-
 .right-slide:hover {
   transform: rotate(-1deg);
 }
@@ -41,14 +100,11 @@ body::-webkit-scrollbar {
   animation-delay: 1s;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-
-  /* top: -300px; */
 }
 .right-slide {
   transition: 0.3s;
   backdrop-filter: blur(30px);
   position: absolute;
-  /* top: -300px; */
   bottom: 45%;
   z-index: 20;
   display: inline-block;
@@ -58,21 +114,17 @@ body::-webkit-scrollbar {
   height: 100%;
   background-color: rgba(51, 51, 51, 0.7);
   transform-origin: bottom right;
-  /* transform: rotate(25deg); */
   right: 0;
   animation-name: rotate;
   animation-duration: 2s;
   animation-delay: 2s;
   animation-iteration-count: 1;
   animation-fill-mode: both;
-
-  /* top: -300px; */
 }
 .left-bottom-slide {
   backdrop-filter: blur(30px);
   position: absolute;
   top: 50%;
-  /* margin-top: 100px; */
   z-index: 19;
   display: inline-block;
   margin-left: 0;
@@ -80,16 +132,12 @@ body::-webkit-scrollbar {
   height: 100%;
   background-color: rgba(51, 51, 51, 0.7);
   transform-origin: top left;
-  /* transform: rotate(25deg); */
   left: 0;
-
   animation-name: rotate;
   animation-delay: 2s;
   animation-duration: 2s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-
-  /* top: 400px; */
 }
 .right-bottom-slide {
   backdrop-filter: blur(30px);
@@ -149,18 +197,6 @@ body::-webkit-scrollbar {
     top: -290px;
   }
 }
-
-ul {
-  /* display: inline-block; */
-  position: absolute;
-  display: inline-block;
-  list-style-type: none;
-  overflow: hidden;
-
-  margin: 0 0 0 20px;
-  padding: 0;
-  bottom: 0;
-}
 #left-ul {
   left: 5vw;
 }
@@ -173,34 +209,6 @@ ul {
 #right-ul a {
   color: #999;
 }
-
-li a {
-  text-shadow: 0 2px 0 #1f1d1d;
-}
-.video {
-  position: absolute;
-  z-index: 10;
-  /* background-color: #1f1d1d; */
-  top: 0;
-  left: 0;
-  width: 100vw;
-  /* height: 100%; */
-  filter: brightness(80%);
-}
-.hide {
-  display: none;
-}
-#video-container {
-  position: absolute;
-  /* z-index: 2;
-  overflow: auto;
-  background-color: #1f1d1d;*/
-  height: 100%;
-  top: 0;
-  overflow: hidden;
-  width: 100%;
-}
-
 .slide-shadow {
   position: absolute;
   width: 110%;
@@ -226,58 +234,42 @@ li a {
   left: -20px;
 }
 
-.navbar {
-  position: sticky;
-  top: 0;
-  margin: auto;
-  z-index: 30;
-  width: 100%;
-  height: 80px;
-  background-color: #555;
-}
+/* ************************ Video ************************************* */
 
-li {
-  /* margin-top: 40px; */
-  /* display: inline-block; */
-  position: relative;
-  display: inline-block;
-  /* float: left; */
-  margin-left: 100;
+.video {
+  position: absolute;
+  z-index: 10;
+  /* background-color: #1f1d1d; */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* height: 100%; */
+  filter: brightness(80%);
+}
+.hide {
+  display: none;
+}
+#video-container {
+  position: absolute;
+  /* z-index: 2;
+  overflow: auto;
+  background-color: #1f1d1d;*/
+  height: 100%;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
 }
 
 #vidSubtext {
   position: absolute;
-  z-index: 1000000;
+  z-index: 23;
   bottom: 0%;
   color: white;
-  opacity: 0.3;
+  opacity: 0.1;
   left: 0;
 }
 
-a {
-  display: inline-block;
-  /* position: absolute; */
-  /* display: inline-block; */
-  left: 1000px;
-  bottom: 0;
-  margin-left: 100;
-  padding: 8px;
-  color: #ddd;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 2vw;
-  text-decoration: none;
-
-  /* background-color: #dddddd; */
-}
-li a:hover {
-  color: rgb(231, 102, 102);
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(107, 107, 107, 1) 100%
-  );
-}
+/* ************************ Game ************************************* */
 
 .game {
   position: relative;
@@ -359,6 +351,9 @@ li a:hover {
 .shrimpstand {
   background-image: url(../img/shrimpstandgif.png);
 }
+
+/* ************************ Footer ************************************* */
+
 #shrimphappy-img {
   position: absolute;
   bottom: -35px;
@@ -427,3 +422,4 @@ li a:hover {
   text-align: center;
   z-index: 600;
 }
+/* ************************ Video ************************************* */
