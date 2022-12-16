@@ -13,6 +13,7 @@ body::-webkit-scrollbar {
   margin: 10px;
   float: left;
 }
+/* ************************ Slides ************************************* */
 .left-slide:hover {
   transform: rotate(-24deg);
 }
@@ -242,6 +243,15 @@ li {
   display: inline-block;
   /* float: left; */
   margin-left: 100;
+}
+
+#vidSubtext {
+  position: absolute;
+  z-index: 1000000;
+  bottom: 0%;
+  color: white;
+  opacity: 0.3;
+  left: 0;
 }
 
 a {
