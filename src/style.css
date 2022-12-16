@@ -348,7 +348,6 @@ li a:hover {
   z-index: 500;
   max-width: 10vw;
   height: auto;
-  background-image: url(../img/happyshrimp.png);
 }
 
 .foot {
@@ -358,4 +357,53 @@ li a:hover {
   position: sticky;
   top: 90vh;
   z-index: 500;
+}
+.speech-container {
+  z-index: 400;
+  transform-origin: bottom right;
+  position: absolute;
+  bottom: 8vh;
+  right: 6vw;
+  opacity: 0;
+  width: 10vw;
+  height: 10vh;
+  transform: rotate(-120deg);
+  /* background-color: red; */
+  /* height: auto; */
+  animation-name: spin;
+  animation-duration: 2s;
+  animation-delay: 4s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+  /* top: 400px; */
+}
+
+#speech-bubble {
+  z-index: 380;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+}
+@keyframes spin {
+  from {
+    rotate: 0deg;
+    scale: 0;
+  }
+  to {
+    opacity: 0.7;
+    filter: brightness(2);
+    rotate: 120deg;
+    scale: 1;
+    /* bottom: calc(40vh - 50vw); */
+  }
+}
+.speech-text {
+  position: absolute;
+  top: -1vh;
+  font-size: 1vw;
+  text-align: center;
+  z-index: 600;
 }
