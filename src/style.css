@@ -257,7 +257,7 @@ li a:hover {
   height: 60vw;
   max-height: 100vh;
 
-  top: -12vh;
+  top: -20vh;
   overflow: hidden;
   width: 100vw;
 }
@@ -427,7 +427,7 @@ li a:hover {
 
 .transition-shadow {
   position: relative;
-  top: -12vh;
+  top: -20vh;
   width: 100vw;
   height: 10vh;
   background: linear-gradient(
