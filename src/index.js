@@ -13,7 +13,7 @@
 //   acc = 0;
 // let netFlip = 1;
 // window.scrollTo(0, 0);
-// document.body.scrollTop = 0;
+document.body.scrollTop = 0;
 // var prevEvent, currentEvent;
 // let boundaries = {
 //   left: gameCanvas.offsetLeft,
